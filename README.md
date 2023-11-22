@@ -1,4 +1,4 @@
-# ¡Bienvenido a mi Perfil de GitHub! 🚀
+# ¡Bienvenido a mi Repositorio de GitHub! 🚀
 
 ¡Hola, viajero del código! 👋 Soy Christian, un entusiasta del desarrollo de software que ama explorar las maravillas de la tecnología. Este rincón de GitHub es mi patio de juegos para experimentar con Git, GitHub Actions, CI/CD, y más.
 

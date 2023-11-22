@@ -1,11 +1,18 @@
-name: simple workflow
+name: Run Docker Container
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  example-job-1:
+  run-docker:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "esta hecho el trigger"
+    - name: Set up Docker
+      uses: docker/setup-docker@v2
+
+    - name: Run Docker container
+      run: docker run -d -p 8080:8080 christian1328/formulario:5.0
 

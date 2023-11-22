@@ -23,3 +23,22 @@ jobs:
         tag_with_sha: true
         tags: ${{ github.sha }}
 
+    - name: Deploy to Kubernetes
+      uses: azure/k8s-set-context@v1
+      with:
+        kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+        context: ${{ secrets.KUBE_CONTEXT }}
+      env:
+        CONTAINER_IMAGE: ${{ github.repository }}:${{ github.sha }}
+
+    - name: Create Kubernetes Deployment
+      run: kubectl apply -f /Users/user/gitactions/.github/workflows/deployment.yaml
+
+    - name: Verify deployment
+      uses: steebchen/kubectl@v2.0.0
+      with:
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        version: v1.21.0
+        binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl"
+        command: rollout status deployment/my-app
+

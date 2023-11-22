@@ -1,0 +1,27 @@
+name: Saludos
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+  issues:
+    types:
+      - opened
+  push:
+    branches:
+      - main
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - name: Saludo a los usuarios
+      uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "¡Hola! Gracias por abrir este issue. En breve te responderemos."
+        pr-message: "¡Hola! Gracias por abrir este pull request. En breve te responderemos."

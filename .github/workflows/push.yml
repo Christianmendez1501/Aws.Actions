@@ -1,4 +1,4 @@
-kon:
+on:
   push:
     branches:
       - main

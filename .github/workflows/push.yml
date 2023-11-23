@@ -1,7 +1,12 @@
 name: Run Docker Container
 
-on:
-  push
+on:   
+  issues:
+    types:
+      - opened
+  push:
+    branches:
+      - main
 
 jobs:
   run-docker:

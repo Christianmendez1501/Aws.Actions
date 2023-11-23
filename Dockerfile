@@ -1,4 +1,4 @@
-FROM Python
+FROM python
 WORKDIR /
 COPY app.py ./
 COPY . .

@@ -1,7 +1,6 @@
 name: Saludos
 
-on:
-  issues
+on: issues
 
 jobs:
   greeting:

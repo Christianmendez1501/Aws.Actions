@@ -1,0 +1,5 @@
+version: 1.0
+runtime: python3.9
+command:
+  - /root/.pyenv/versions/3.9.16/bin/python
+  - /codebuild/output/src1873162714/src/app.py

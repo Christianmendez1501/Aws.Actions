@@ -10,7 +10,7 @@ app = dash.Dash(__name__)
 
 # Configuramos la conexión a la tabla de DynamoDB
 dynamodb = boto3.resource('dynamodb', region_name='eu-west-3') #colocar la region que corresponde
-tabla_usuarios = dynamodb.Table('formulario') #colocar nopmbre que le hayas puesto a la tabla
+tabla_usuarios = dynamodb.Table('formulario') #colocar nombre que le hayas puesto a la tabla
 
 # Función para obtener los datos de la tabla de DynamoDB
 def obtener_datos_dynamodb():
@@ -25,7 +25,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 # Definimos el diseño general de la aplicación
 app.layout = html.Div(style={'backgroundColor': 'white', 'padding': '20px', 'text-align': 'center'}, children=[
     html.Div([
-        html.H1('Cloud App', style={'color': 'black'}),
+        html.H1('Cloud App', id='title', style={'color': 'black', 'animation': 'bounce 2s infinite'}),
     ], style={'display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'margin-bottom': '20px'}),
 
     # Menú de navegación
@@ -40,7 +40,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'padding': '20px', 'tex
 
     # Aquí se mostrará el contenido
     dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content'),
+    html.Div(id='page-content', style={'text-align': 'center'}),
 ])
 
 # Callback para cargar el contenido de las páginas
@@ -74,6 +74,7 @@ def display_page(pathname):
                 style_as_list_view=True
             )
         ])
+
 # Ruta para manejar la subida de datos del formulario
 @app.callback(
     dash.dependencies.Output('output-container-button', 'children'),
@@ -94,3 +95,4 @@ def submit_form(n_clicks, nombre, email):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True)
+

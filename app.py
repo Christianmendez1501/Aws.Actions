@@ -31,10 +31,10 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'padding': '20px', 'tex
     # Menú de navegación
     html.Div([
         dcc.Link(html.Button('Formulario de Usuarios', id='btn-formulario', n_clicks=0,
-                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000'}),
+                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
                  href='/formulario'),
         dcc.Link(html.Button('Tabla de Usuarios', id='btn-tabla-usuarios', n_clicks=0,
-                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000'}),
+                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
                  href='/tabla_usuarios'),
     ], style={'display': 'flex', 'justify-content': 'center'}),
 
@@ -95,4 +95,6 @@ def submit_form(n_clicks, nombre, email):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True)
+
+
 

@@ -1,15 +1,10 @@
-import http.server
-import socketserver
+from flask import Flask
 
-# Configurar el puerto en el que se ejecutará el servidor
-port = 8000
+app = Flask(__name__)
 
-# Configurar el manejador para servir archivos estáticos
-handler = http.server.SimpleHTTPRequestHandler
+@app.route('/')
+def hello_world():
+    return '¡Hola, Mundo! Este es un servidor web simple con Flask.'
 
-# Crear el servidor
-with socketserver.TCPServer(("", port), handler) as httpd:
-    print(f"Servidor web en el puerto {port}")
-
-    # Mantener el servidor en ejecución
-    httpd.serve_forever()
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000)

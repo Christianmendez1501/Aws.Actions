@@ -1,16 +1,7 @@
 name: Saludos
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-  issues:
-    types:
-      - opened
-  push:
-    branches:
-      - main
+  issues
 
 jobs:
   greeting:

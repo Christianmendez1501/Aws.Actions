@@ -1,6 +1,9 @@
 name: Saludos
 
-on: issues
+on: 
+  issues:
+    types:
+      - opened
 
 jobs:
   greeting:

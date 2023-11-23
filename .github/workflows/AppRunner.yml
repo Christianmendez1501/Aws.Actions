@@ -51,4 +51,4 @@ jobs:
           wait-for-service-stability: true
       
       - name: App Runner output
-        run: echo "App runner output ${{ steps.deploy-apprunner.outputs.service-id }}"
+        run: echo "App runner output ${{ steps.deploy-apprunner.outputs.url }}"

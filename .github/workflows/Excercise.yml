@@ -1,0 +1,29 @@
+name: Build and Run App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: docker buildx create --use && docker buildx build --platform linux/amd64,linux/arm64 -t tu_usuario_dockerhub/nombre_imagen:latest -f Dockerfile .
+
+    - name: Login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Push Docker image to Docker Hub
+      run: docker push tu_usuario_dockerhub/nombre_imagen:latest
+
+    - name: Run Docker image
+      run: docker run -d -p 8080:80 tu_usuario_dockerhub/nombre_imagen:latest

@@ -9,8 +9,8 @@ import datetime
 app = dash.Dash(__name__)
 
 # Configuramos la conexión a la tabla de DynamoDB
-dynamodb = boto3.resource('dynamodb', region_name='eu-west-3') #colocar la region que corresponde
-tabla_usuarios = dynamodb.Table('formulario') #colocar nombre que le hayas puesto a la tabla
+dynamodb = boto3.resource('dynamodb', region_name='eu-west-3')  # Coloca la región correspondiente
+tabla_usuarios = dynamodb.Table('formulario')  # Coloca el nombre que hayas puesto a la tabla
 
 # Función para obtener los datos de la tabla de DynamoDB
 def obtener_datos_dynamodb():
@@ -23,18 +23,18 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # Definimos el diseño general de la aplicación
-app.layout = html.Div(style={'backgroundColor': 'white', 'padding': '20px', 'text-align': 'center'}, children=[
+app.layout = html.Div(style={'backgroundColor': 'black', 'padding': '20px', 'text-align': 'center'}, children=[
     html.Div([
-        html.H1('Cloud App', id='title', style={'color': 'black', 'animation': 'bounce 2s infinite'}),
+        html.H1('Cloud App', id='title', style={'color': 'white', 'animation': 'bounce 2s infinite'}),
     ], style={'display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'margin-bottom': '20px'}),
 
     # Menú de navegación
     html.Div([
         dcc.Link(html.Button('Formulario de Usuarios', id='btn-formulario', n_clicks=0,
-                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
+                             style={'background-color': 'white', 'color': 'black', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
                  href='/formulario'),
         dcc.Link(html.Button('Tabla de Usuarios', id='btn-tabla-usuarios', n_clicks=0,
-                             style={'background-color': 'black', 'color': 'white', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
+                             style={'background-color': 'white', 'color': 'black', 'border': 'none', 'margin': '10px', 'box-shadow': '2px 2px 5px 0px #000000', 'animation': 'falling 2s infinite'}),
                  href='/tabla_usuarios'),
     ], style={'display': 'flex', 'justify-content': 'center'}),
 
@@ -52,25 +52,25 @@ def display_page(pathname):
     if pathname == '/formulario':
         # Si el usuario navega al formulario, muestra el contenido del formulario
         return html.Div([
-            html.H1('Formulario de Usuarios', style={'color': 'black'}),
+            html.H1('Formulario de Usuarios', style={'color': 'white'}),
             dcc.Input(id='nombre', type='text', placeholder='Nombre', value='', style={'margin-bottom': '10px'}),
             dcc.Input(id='email', type='email', placeholder='Email', value='', style={'margin-bottom': '10px'}),
             html.Button('Enviar', id='submit-button', n_clicks=0,
-                        style={'background-color': 'black', 'color': 'white', 'border': 'none', 'box-shadow': '2px 2px 5px 0px #000000'}),
-            html.Div(id='output-container-button', children='', style={'margin-top': '10px', 'color': 'black'})
-        ])
+                        style={'background-color': 'white', 'color': 'black', 'border': 'none', 'box-shadow': '2px 2px 5px 0px #000000'}),
+            html.Div(id='output-container-button', children='', style={'margin-top': '10px', 'color': 'white'})
+        ], style={'background-color': 'black'})
     elif pathname == '/tabla_usuarios':
         # Si el usuario navega a la tabla de usuarios, muestra el contenido de la tabla
         data = obtener_datos_dynamodb()
         return html.Div([
-            html.H1('Usuarios registrados', style={'color': 'black'}),
+            html.H1('Usuarios registrados', style={'color': 'white'}),
             dash_table.DataTable(
                 columns=[{'name': key, 'id': key} for key in data[0].keys()],
                 data=data,
-                style_table={'overflowX': 'auto', 'border': '1px solid black', 'backgroundColor': 'white'},
-                style_header={'backgroundColor': 'black', 'color': 'white', 'fontWeight': 'bold'},
-                style_cell={'textAlign': 'left', 'border': '1px solid black'},
-                style_data={'border': '1px solid black'},
+                style_table={'overflowX': 'auto', 'border': '1px solid white', 'backgroundColor': 'black'},
+                style_header={'backgroundColor': 'white', 'color': 'black', 'fontWeight': 'bold'},
+                style_cell={'textAlign': 'left', 'border': '1px solid white'},
+                style_data={'border': '1px solid white'},
                 style_as_list_view=True
             )
         ])
@@ -95,6 +95,7 @@ def submit_form(n_clicks, nombre, email):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True)
+
 
 
 

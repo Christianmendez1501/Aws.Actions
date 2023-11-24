@@ -1,3 +1,4 @@
+'''
 import json
 import boto3
 import dash
@@ -95,6 +96,56 @@ def submit_form(n_clicks, nombre, email):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8080, debug=True)
+'''
+
+from flask import Flask, render_template, request
+import boto3
+import random
+import datetime
+
+app = Flask(__name__)
+
+# Configura la conexión a la tabla de DynamoDB
+dynamodb = boto3.resource('dynamodb', region_name='eu-west-3')  # Coloca la región correspondiente
+tabla_usuarios = dynamodb.Table('formulario')  # Coloca el nombre que hayas puesto a la tabla
+
+# Función para obtener los datos de la tabla de DynamoDB
+def obtener_datos_dynamodb():
+    response = tabla_usuarios.scan()
+    items = response['Items']
+    return items
+
+# Ruta principal
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Ruta para el formulario de usuarios
+@app.route('/formulario', methods=['GET', 'POST'])
+def formulario():
+    if request.method == 'POST':
+        # Si se envía el formulario, obtén los datos y guárdalos en DynamoDB
+        nombre = request.form['nombre']
+        email = request.form['email']
+        usuario = {
+            'ID': random.randint(100000, 999999),
+            'Nombre': nombre,
+            'Correo electrónico': email,
+            'Fecha de registro': datetime.date.today().strftime('%Y-%m-%d')
+        }
+        tabla_usuarios.put_item(Item=usuario)
+        return f'Se ha enviado el formulario: {nombre}, {email}'
+
+    return render_template('formulario.html')
+
+# Ruta para la tabla de usuarios
+@app.route('/tabla_usuarios')
+def tabla_usuarios():
+    data = obtener_datos_dynamodb()
+    return render_template('tabla_usuarios.html', data=data)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
 
 

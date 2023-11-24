@@ -1,0 +1,55 @@
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+h1 {
+    animation: bounce 2s infinite;
+}
+
+nav a {
+    color: #fff;
+    margin: 10px;
+    text-decoration: none;
+}
+
+form {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+form input {
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    box-shadow: 2px 2px 5px 0px #000000;
+}
+
+table {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+table th, table td {
+    border: 1px solid #fff;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}

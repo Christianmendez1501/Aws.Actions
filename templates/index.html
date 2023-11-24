@@ -41,6 +41,15 @@
             box-shadow: 2px 2px 5px 0px #000000;
             animation: falling 2s infinite;
         }
+
+        #page-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; /* Asegura que el contenido de Dash esté sobre la nube de Three.js */
+            text-align: center;
+        }
     </style>
     <title>Tu Aplicación Web</title>
 </head>
@@ -48,7 +57,7 @@
 
 <!-- Contenido de Dash -->
 <div id="page-content">
-    <h1>¡Inscribete Aqui!</h1>
+    <h1>¡Registrate en mi Formulario de Cloud!</h1>
     <!-- Agrega aquí el contenido de Dash según tu diseño -->
     <a class="btn-formulario" href="/formulario">Formulario de Usuarios</a>
     <a class="btn-tabla-usuarios" href="/tabla_usuarios">Tabla de Usuarios</a>

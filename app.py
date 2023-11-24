@@ -140,11 +140,13 @@ def formulario():
 
 # Ruta para la tabla de usuarios
 @app.route('/tabla_usuarios')
-def tabla_usuarios():
-    return render_template('tabla_usuarios.html', data=usuarios_registrados)
+def mostrar_tabla_usuarios():
+    data = obtener_datos_dynamodb()
+    return render_template('tabla_usuarios.html', data=data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
+
 
 
 

@@ -1,28 +1,26 @@
-<!-- Import maps polyfill -->
-<!-- Remove this when import maps will be widely supported -->
-<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    
-<script type="importmap">
-	{
-		"imports": {
-			"three": "https://unpkg.com/three/build/three.module.js"
-		}
-	}
-</script>
-
-<!-- Estilo CSS para la página -->
-<style>
-    body {
-        margin: 0;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three/build/three.module.js"
+            }
+        }
+    </script>
+    <title>Tu Aplicación Web</title>
+</head>
+<body style="margin: 0; overflow: hidden;">
 
 <!-- Contenido del formulario -->
-<div id="content">
+<div id="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
     <h1>Formulario de Usuarios</h1>
     <form method="post">
-        <input type="text" name="nombre" placeholder="Nombre">
-        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="nombre" placeholder="Nombre" style="margin-bottom: 10px;">
+        <input type="email" name="email" placeholder="Email" style="margin-bottom: 10px;">
         <button type="submit">Enviar</button>
     </form>
 </div>
@@ -65,7 +63,7 @@
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('content').appendChild(renderer.domElement);
+    document.body.appendChild(renderer.domElement);
 
     // Animación
     function animation(time) {
@@ -90,3 +88,7 @@
     // Iniciar el bucle de animación
     renderer.setAnimationLoop(animation);
 </script>
+
+</body>
+</html>
+

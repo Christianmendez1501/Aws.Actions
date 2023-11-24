@@ -1,10 +1,12 @@
 # ¡Bienvenido a mi Repositorio de GitHub! 🚀
 
-¡Hola, viajero del código! 👋 Soy Christian, un entusiasta del desarrollo de software que ama explorar las maravillas de la tecnología. Este rincón de GitHub es mi patio de juegos para experimentar con Git, GitHub Actions, CI/CD, y más.
+¡Hola, viajero del código! Este rincón de GitHub es mi patio de juegos para experimentar con Git, GitHub Actions, CI/CD, y más.
 
 ## Acerca de este Repositorio
 
-Este repositorio es mi laboratorio personal, donde pruebo diferentes configuraciones de GitHub Actions y experimento con flujos de CI/CD. Aquí encontrarás una variedad de archivos YAML y otras cosas divertidas que he creado para automatizar y mejorar el proceso de desarrollo.
+Este repositorio es mi laboratorio personal, donde realizamos emocionantes experimentos con GitHub Actions para desplegar una página web de tipo formulario. Fusionamos las potentes herramientas de HTML, JavaScript, y CSS, junto con la ejecución magistral de Python y sus bibliotecas, como Three.js, para crear una experiencia única.
+
+Implementamos un fluido flujo de integración continua/despliegue continuo (CI/CD) utilizando diversos agentes, entre ellos, GitHub Actions, para automatizar todo el proceso. No solo eso, también nos sumergimos en el mundo de Docker y un registro de contenedores, construyendo y enviando imágenes con maestría. Para coronar nuestra hazaña, utilizamos App Runner para desplegar la página web de manera eficiente y sin complicaciones.
 
 ## ¡Diviértete Explorando!
 

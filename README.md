@@ -45,7 +45,7 @@ Profundiza en los entresijos de nuestros flujos de CI/CD explorando los archivos
 
 3. **A partir de aca comienza la implementacion**
 
-Despliega abajo para visualizar el codigo
+# Despliega aca abajo para visualizar el codigo
 
 <details>
   <summary><b>Deploy to App Runner Example</b></summary>

@@ -13,7 +13,7 @@
 ## 🧪 Experimentos en Acción
 
 <p align="center">
-  <img src="img/3.svg" alt="AppRunner" width="150">
+  <img src="img/3.svg" alt="AppRunner" width="200">
 </p>
 
 ### Flujos de CI/CD con GitHub Actions

@@ -6,13 +6,15 @@
 </p>
 
 
-
-
 ## ¡Bienvenido a la Central de Innovación! 👋
 
 ¡Saludos, explorador del código! Aquí en mi laboratorio digital, estamos inmersos en una emocionante aventura de desarrollo, donde las ideas toman vida y la experimentación es la norma. Este repositorio es el epicentro de nuestras hazañas, donde exploramos los encantos de GitHub Actions, CI/CD, y llevamos nuestras creaciones a nuevas alturas con AWS App Runner.
 
 ## 🧪 Experimentos en Acción
+
+<p align="center">
+  <img src="img/3.svg" alt="AppRunner" width="150">
+</p>
 
 ### Flujos de CI/CD con GitHub Actions
 
@@ -43,8 +45,12 @@ Profundiza en los entresijos de nuestros flujos de CI/CD explorando los archivos
 
 3. **A partir de aca comienza la implementacion**
 
+Despliega abajo para visualizar el codigo
+
+<details>
+  <summary><b>Deploy to App Runner Example</b></summary>
+
 ```YML
-# Example
 name: Deploy to App Runner 
 on:
   push:
@@ -100,6 +106,7 @@ jobs:
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-apprunner.outputs.url }}"
 ```
+</details>
 
 ## 🚀 ¡Tu Aventura Comienza Ahora!
 

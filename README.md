@@ -1,8 +1,14 @@
 # 🚀 Repositorio de Experimentación: CI/CD y Despliegue en AWS App Runner
 
-[AppRunner](img/1.png) 
+<p align="center">
+  <img src="img/1.png" alt="AppRunner">
+</p>
 
-[Actions](img/2.png)
+
+<p align="center">
+  <img src="img/2.png" alt="actions">
+</p>
+
 
 ## ¡Bienvenido a la Central de Innovación! 👋
 

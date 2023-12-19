@@ -1,7 +1,10 @@
 # 🚀 Repositorio de Experimentación: CI/CD y Despliegue en AWS App Runner
 
+<p align="center">
   <img src="img/1.png" alt="AppRunner" width="100">
-  <img src="img/2.png" alt="actions" width="100">
+  <img src="img/2.png" alt="Actions" width="100">
+</p>
+
 
 
 

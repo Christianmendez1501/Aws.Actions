@@ -48,7 +48,14 @@ jobs:
           cpu : 1
           memory : 2
           port: 8080
-          wait-for-service-stability-seconds: 300
+          wait-for-service-stability-seconds: 100
+      
+      - name: Wait for 5 minutes
+        run: sleep 200
+      
+      - name: Delete App Runner service
+        run: |
+          aws apprunner delete-service --service-arn ${{ steps.deploy-apprunner.outputs.service-arn }}
       
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-apprunner.outputs.url }}"

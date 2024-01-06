@@ -48,10 +48,10 @@ jobs:
           cpu : 1
           memory : 2
           port: 8080
-          wait-for-service-stability-seconds: 100
+          wait-for-service-stability-seconds: 300
       
       - name: Wait for 5 minutes
-        run: sleep 200
+        run: sleep 400
       
       - name: Delete App Runner service
         run: |
